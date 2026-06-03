@@ -6,10 +6,12 @@ plugins {
 android {
     namespace = "com.example.rwtapp"
     compileSdk = 36
-
+    buildFeatures {
+        buildConfig = true
+    }
     defaultConfig {
         applicationId = "com.example.rwtapp"
-        minSdk = 16
+        minSdk = 23
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"

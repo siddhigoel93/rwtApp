@@ -1,6 +1,7 @@
 package com.example.rwtapp.data.api
 
 import com.example.rwtapp.data.model.NewsApiResponse
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -11,6 +12,6 @@ interface NewsApiService {
         @Query("country") country: String,
         @Query("category") category: String = "technology",
         @Query("apiKey") apiKey: String
-    ): NewsApiResponse
+    ): Response<NewsApiResponse>
 
 }
