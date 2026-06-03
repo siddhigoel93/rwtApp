@@ -14,11 +14,11 @@ class NewsViewModel : ViewModel() {
     private val _newsState = MutableLiveData<UiState>()
     val newsState: LiveData<UiState> = _newsState
 
-    fun fetchNews() {
+    fun fetchNews(country: String? = "us", query: String? = null) {
         _newsState.value = UiState.Loading
 
         viewModelScope.launch {
-            val result = repository.getTopHeadlines()
+            val result = repository.getTopHeadlines(country, query)
 
             result
                 .onSuccess { articles ->

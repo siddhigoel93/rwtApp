@@ -6,10 +6,12 @@ import com.example.rwtapp.BuildConfig
 
 class NewsRepository {
 
-    suspend fun getTopHeadlines(): Result<List<Article>> {
+    suspend fun getTopHeadlines(country: String?, query: String?): Result<List<Article>> {
         return try {
             val response = ApiClient.newsApiService.getTopHeadlines(
-                country = "us",
+                country = country,
+                category = "technology",
+                query = query,
                 apiKey = BuildConfig.NEWS_API_KEY
             )
 
